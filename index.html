@@ -41,7 +41,18 @@
   .hero-cta { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-light); text-decoration: none; border: 1px solid var(--gold); padding: 0.75rem 1.75rem; transition: background 0.2s, color 0.2s; }
   .hero-cta:hover { background: var(--gold); color: var(--navy); }
   .hero-portrait { display: flex; justify-content: center; animation: fadeUp 0.9s 0.2s ease both; }
-  .portrait-frame { width: 340px; height: 420px; background: var(--navy-mid); border: 1px solid var(--navy-light); position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .portrait-frame {
+    width: 340px;
+    height: 420px;
+    background: var(--navy-mid);
+    border: 1px solid var(--navy-light);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
   .portrait-frame::before { content: ''; position: absolute; top: 12px; left: 12px; right: -12px; bottom: -12px; border: 1px solid var(--gold); opacity: 0.25; pointer-events: none; z-index: 1; }
 
   /* SECTIONS */
