@@ -8,174 +8,46 @@
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #0d1b2a;
-    --navy-mid: #1a2e42;
-    --navy-light: #243c52;
-    --gold: #b8922a;
-    --gold-light: #d4a94a;
-    --cream: #f7f4ef;
-    --cream-dark: #ede9e1;
-    --text: #1c1c1c;
-    --text-muted: #5a5a5a;
-    --text-light: #8a8a8a;
+    --navy: #0d1b2a; --navy-mid: #1a2e42; --navy-light: #243c52;
+    --gold: #b8922a; --gold-light: #d4a94a;
+    --cream: #f7f4ef; --cream-dark: #ede9e1;
+    --text: #1c1c1c; --text-muted: #5a5a5a; --text-light: #8a8a8a;
     --border: #d8d2c8;
     --serif: 'EB Garamond', Georgia, serif;
     --display: 'Cormorant Garamond', Georgia, serif;
     --mono: 'JetBrains Mono', monospace;
   }
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: var(--serif);
-    background: var(--cream);
-    color: var(--text);
-    font-size: 18px;
-    line-height: 1.75;
-  }
+  body { font-family: var(--serif); background: var(--cream); color: var(--text); font-size: 18px; line-height: 1.75; }
 
   /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    background: var(--navy);
-    border-bottom: 1px solid var(--navy-light);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 3rem;
-    height: 56px;
-  }
-  .nav-brand {
-    font-family: var(--display);
-    font-size: 17px;
-    font-weight: 400;
-    color: var(--cream);
-    letter-spacing: 0.04em;
-    text-decoration: none;
-  }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--navy); border-bottom: 1px solid var(--navy-light); display: flex; align-items: center; justify-content: space-between; padding: 0 3rem; height: 56px; }
+  .nav-brand { font-family: var(--display); font-size: 17px; font-weight: 400; color: var(--cream); letter-spacing: 0.04em; text-decoration: none; }
   .nav-brand span { color: var(--gold-light); }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    font-family: var(--mono);
-    font-size: 11.5px;
-    font-weight: 400;
-    color: #9bb0c4;
-    text-decoration: none;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--gold-light); }
+  .nav-links a { font-family: var(--mono); font-size: 11.5px; color: #9bb0c4; text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
 
   /* HERO */
-  #hero {
-    min-height: 100vh;
-    background: var(--navy);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    padding: 0 6rem;
-    gap: 4rem;
-    padding-top: 56px;
-  }
+  #hero { min-height: 100vh; background: var(--navy); display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 56px 6rem 0; gap: 4rem; }
   .hero-text { animation: fadeUp 0.9s ease both; }
-  .hero-eyebrow {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  .hero-eyebrow::after {
-    content: '';
-    display: inline-block;
-    height: 1px;
-    width: 48px;
-    background: var(--gold);
-    opacity: 0.5;
-  }
-  h1.hero-name {
-    font-family: var(--display);
-    font-size: clamp(3rem, 5vw, 5.5rem);
-    font-weight: 300;
-    color: var(--cream);
-    line-height: 1.05;
-    margin-bottom: 0.3rem;
-    letter-spacing: -0.01em;
-  }
+  .hero-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .hero-eyebrow::after { content: ''; display: inline-block; height: 1px; width: 48px; background: var(--gold); opacity: 0.5; }
+  h1.hero-name { font-family: var(--display); font-size: clamp(3rem, 5vw, 5.5rem); font-weight: 300; color: var(--cream); line-height: 1.05; margin-bottom: 0.3rem; letter-spacing: -0.01em; }
   h1.hero-name em { font-style: italic; color: var(--gold-light); }
-  .hero-title {
-    font-family: var(--serif);
-    font-size: 1.1rem;
-    color: #7a9ab5;
-    margin-bottom: 1.75rem;
-    font-style: italic;
-  }
-  .hero-desc {
-    font-size: 1rem;
-    color: #8fadc4;
-    line-height: 1.8;
-    max-width: 480px;
-    margin-bottom: 2rem;
-  }
-  .hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold-light);
-    text-decoration: none;
-    border: 1px solid var(--gold);
-    padding: 0.75rem 1.75rem;
-    transition: background 0.2s, color 0.2s;
-  }
+  .hero-title { font-family: var(--serif); font-size: 1.1rem; color: #7a9ab5; margin-bottom: 1.75rem; font-style: italic; }
+  .hero-desc { font-size: 1rem; color: #8fadc4; line-height: 1.8; max-width: 480px; margin-bottom: 2rem; }
+  .hero-cta { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-light); text-decoration: none; border: 1px solid var(--gold); padding: 0.75rem 1.75rem; transition: background 0.2s, color 0.2s; }
   .hero-cta:hover { background: var(--gold); color: var(--navy); }
   .hero-portrait { display: flex; justify-content: center; animation: fadeUp 0.9s 0.2s ease both; }
-  .portrait-frame {
-    width: 340px;
-    height: 420px;
-    background: var(--navy-mid);
-    border: 1px solid var(--navy-light);
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 0.5rem;
-    overflow: hidden;
-  }
-  .portrait-frame::before {
-    content: '';
-    position: absolute;
-    top: 12px; left: 12px;
-    right: -12px; bottom: -12px;
-    border: 1px solid var(--gold);
-    opacity: 0.25;
-    pointer-events: none;
-    z-index: 1;
-  }
+  .portrait-frame { width: 340px; height: 420px; background: var(--navy-mid); border: 1px solid var(--navy-light); position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .portrait-frame::before { content: ''; position: absolute; top: 12px; left: 12px; right: -12px; bottom: -12px; border: 1px solid var(--gold); opacity: 0.25; pointer-events: none; z-index: 1; }
 
   /* SECTIONS */
   section { padding: 5rem 0; }
   .section-inner { max-width: 960px; margin: 0 auto; padding: 0 3rem; }
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 1.25rem;
-  }
+  .section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 3rem; border-bottom: 1px solid var(--border); padding-bottom: 1.25rem; }
   .section-num { font-family: var(--mono); font-size: 11px; color: var(--gold); letter-spacing: 0.1em; }
   h2.section-title { font-family: var(--display); font-size: 2.4rem; font-weight: 400; color: var(--navy); letter-spacing: -0.01em; }
 
@@ -190,62 +62,12 @@
   .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
   .tag { font-family: var(--mono); font-size: 10px; background: var(--cream-dark); border: 1px solid var(--border); color: var(--text-muted); padding: 3px 10px; letter-spacing: 0.05em; }
 
-  /* PUBLICATIONS */
-  #publications { background: var(--navy); }
-  #publications h2.section-title { color: var(--cream); }
-  #publications .section-num { color: var(--gold); }
-  #publications .section-header { border-bottom-color: var(--navy-light); }
-  .pub-filters { display: flex; gap: 8px; margin-bottom: 2rem; flex-wrap: wrap; }
-  .filter-btn {
-    font-family: var(--mono);
-    font-size: 10.5px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    border: 1px solid var(--navy-light);
-    background: transparent;
-    color: #7a9ab5;
-    padding: 6px 16px;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .filter-btn.active, .filter-btn:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); }
-  .pub-list { display: flex; flex-direction: column; gap: 0; }
-  .pub-item {
-    border-top: 1px solid var(--navy-light);
-    padding: 1.5rem 0;
-    display: grid;
-    grid-template-columns: 56px 1fr;
-    gap: 1.5rem;
-    align-items: start;
-  }
-  .pub-item:last-child { border-bottom: 1px solid var(--navy-light); }
-  .pub-year { font-family: var(--mono); font-size: 12px; color: var(--gold); padding-top: 4px; letter-spacing: 0.05em; }
-  .pub-title { font-family: var(--serif); font-size: 1.05rem; font-style: italic; color: var(--cream); margin-bottom: 0.3rem; line-height: 1.45; }
-  .pub-authors { font-size: 0.88rem; color: #7a9ab5; margin-bottom: 0.25rem; }
-  .pub-authors strong { color: #a8c4d8; font-style: normal; font-weight: 500; }
-  .pub-journal { font-size: 0.85rem; color: #5a7a8f; font-style: italic; }
-  .pub-links { display: flex; gap: 10px; margin-top: 0.5rem; }
-  .pub-link { font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-light); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
-  .pub-link:hover { border-bottom-color: var(--gold-light); }
-  .pub-badge { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; padding: 2px 8px; border: 1px solid #3a5a2a; color: #7ab87a; vertical-align: middle; margin-left: 8px; }
-
   /* PROJECTS — ACCORDION */
   #projects { background: var(--cream-dark); }
   .projects-accordion { display: flex; flex-direction: column; }
   .acc-item { border-top: 1px solid var(--border); }
   .acc-item:last-child { border-bottom: 1px solid var(--border); }
-  .acc-header {
-    width: 100%;
-    background: transparent;
-    border: none;
-    padding: 1.25rem 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-    text-align: left;
-    gap: 1rem;
-  }
+  .acc-header { width: 100%; background: transparent; border: none; padding: 1.25rem 0; display: flex; align-items: center; justify-content: space-between; cursor: pointer; text-align: left; gap: 1rem; }
   .acc-header:hover .acc-title { color: var(--gold); }
   .acc-left { display: flex; align-items: flex-start; gap: 1rem; }
   .acc-num { font-family: var(--mono); font-size: 10px; color: var(--gold); letter-spacing: 0.15em; min-width: 28px; padding-top: 4px; }
@@ -263,18 +85,8 @@
 
   /* BLOG */
   #blog { background: var(--cream); }
-  .blog-list { display: flex; flex-direction: column; gap: 0; }
-  .blog-item {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    gap: 2rem;
-    align-items: start;
-    border-top: 1px solid var(--border);
-    padding: 1.75rem 0;
-    text-decoration: none;
-    color: inherit;
-    transition: background 0.15s;
-  }
+  .blog-list { display: flex; flex-direction: column; }
+  .blog-item { display: grid; grid-template-columns: 120px 1fr; gap: 2rem; align-items: start; border-top: 1px solid var(--border); padding: 1.75rem 0; text-decoration: none; color: inherit; }
   .blog-item:last-child { border-bottom: 1px solid var(--border); }
   .blog-date { font-family: var(--mono); font-size: 11px; color: var(--text-light); letter-spacing: 0.05em; padding-top: 5px; line-height: 1.4; }
   .blog-item h3 { font-family: var(--serif); font-size: 1.15rem; font-style: italic; color: var(--navy); margin-bottom: 0.35rem; transition: color 0.2s; }
@@ -285,49 +97,15 @@
   /* CONTACT */
   #contact { background: var(--cream-dark); }
   .contact-form { display: flex; flex-direction: column; gap: 1rem; }
-  .contact-form input,
-  .contact-form textarea,
-  .contact-form select {
-    width: 100%;
-    padding: 0.85rem 1rem;
-    font-family: var(--serif);
-    font-size: 0.95rem;
-    background: var(--cream);
-    border: 1px solid var(--border);
-    color: var(--text);
-    outline: none;
-    transition: border-color 0.2s;
-    resize: vertical;
-  }
-  .contact-form input:focus,
-  .contact-form textarea:focus,
-  .contact-form select:focus { border-color: var(--gold); }
+  .contact-form input, .contact-form textarea, .contact-form select { width: 100%; padding: 0.85rem 1rem; font-family: var(--serif); font-size: 0.95rem; background: var(--cream); border: 1px solid var(--border); color: var(--text); outline: none; transition: border-color 0.2s; resize: vertical; }
+  .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { border-color: var(--gold); }
   .contact-form textarea { min-height: 140px; }
-  .contact-form button {
-    font-family: var(--mono);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    background: var(--navy);
-    color: var(--cream);
-    border: 1px solid var(--navy);
-    padding: 0.85rem 2rem;
-    cursor: pointer;
-    align-self: flex-start;
-    transition: background 0.2s, color 0.2s;
-  }
+  .contact-form button { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; background: var(--navy); color: var(--cream); border: 1px solid var(--navy); padding: 0.85rem 2rem; cursor: pointer; align-self: flex-start; transition: background 0.2s, color 0.2s; }
   .contact-form button:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); }
   .contact-form button:disabled { opacity: 0.6; cursor: not-allowed; }
 
   /* FOOTER */
-  footer {
-    background: var(--navy);
-    border-top: 1px solid var(--navy-light);
-    padding: 2rem 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+  footer { background: var(--navy); border-top: 1px solid var(--navy-light); padding: 2rem 3rem; display: flex; align-items: center; justify-content: space-between; }
   .footer-copy { font-family: var(--mono); font-size: 11px; color: #3a5068; letter-spacing: 0.06em; }
   .footer-links { display: flex; gap: 1.5rem; }
   .footer-links a { font-family: var(--mono); font-size: 11px; color: #3a5068; text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; }
@@ -337,8 +115,6 @@
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
   .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-  /* UTIL */
   .divider { width: 48px; height: 1px; background: var(--gold); opacity: 0.4; margin: 2rem 0; }
 
   @media (max-width: 768px) {
@@ -356,26 +132,24 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-brand">Dr. George <span>Molina</span></a>
+  <a href="index.html" class="nav-brand">Dr. George <span>Molina</span></a>
   <ul class="nav-links">
     <li><a href="#bio">About</a></li>
-    <li><a href="#publications">Publications</a></li>
+    <li><a href="publications.html">Publications</a></li>
     <li><a href="#projects">Research</a></li>
     <li><a href="#blog">Writing</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-text">
     <div class="hero-eyebrow">Pancreatic and Hepatobiliary Surgical Oncologist</div>
     <h1 class="hero-name">George<br><em>Molina</em></h1>
     <p class="hero-title">Assistant Professor of Surgery<br>Mass General Brigham<br>Harvard Medical School</p>
     <p class="hero-desc">Leveraging quantitative research and health system innovation to improve patient outcomes for patients with complex pancreatic and hepatobiliary cancers.</p>
-    <a href="#publications" class="hero-cta">View Publications &rarr;</a>
+    <a href="publications.html" class="hero-cta">View Publications &rarr;</a>
   </div>
   <div class="hero-portrait">
     <div class="portrait-frame">
@@ -384,7 +158,6 @@
   </div>
 </section>
 
-<!-- BIO -->
 <section id="bio">
   <div class="section-inner">
     <div class="section-header fade-in">
@@ -428,629 +201,18 @@
   </div>
 </section>
 
-<!-- PUBLICATIONS -->
-<section id="publications">
-  <div class="section-inner">
-    <div class="section-header fade-in">
-      <span class="section-num">02</span>
-      <h2 class="section-title">Publications</h2>
-    </div>
-    <div class="pub-filters fade-in">
-      <button class="filter-btn active" onclick="filterPubs('all', this)">All</button>
-      <button class="filter-btn" onclick="filterPubs('2024', this)">2024–2026</button>
-      <button class="filter-btn" onclick="filterPubs('2022', this)">2022–2023</button>
-      <button class="filter-btn" onclick="filterPubs('older', this)">Earlier</button>
-    </div>
-    <div class="pub-list fade-in" id="pubList">
-
-<div class="pub-item" data-year="2026"><div class="pub-year">2026</div><div>
-  <div class="pub-title">Dendritic cell redundancy enables priming of anti-tumor CD4(+) T cells in pancreatic cancer</div>
-  <div class="pub-authors">Kureshi CTS, Walsh MJ, Kureshi R, <strong>Molina G</strong>, et al.</div>
-  <div class="pub-journal">Cancer cell · 2026 May 7</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/j.ccell.2026.04.005" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/42102812/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2026"><div class="pub-year">2026</div><div>
-  <div class="pub-title">Regional Variability in Curative-Intent Surgical Treatment Among Medicare Beneficiaries With Potentially Curable Gastric Cancer</div>
-  <div class="pub-authors">Teeken MD, Liem M, Ruan M, Chen YJ, van Berge Henegouwen MI, <strong>Molina G</strong></div>
-  <div class="pub-journal">The Journal of surgical research · Vol. 322 · pp. 136-146</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/j.jss.2026.03.077" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/41985234/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2026"><div class="pub-year">2026</div><div>
-  <div class="pub-title">ASO Author Reflections: Eliminating Surgical Oncology Health Disparities Through Actionable Change <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors">Cortina CS, Myers SP, <strong>Molina G</strong>, Bea VJ, Willis A</div>
-  <div class="pub-journal">Annals of surgical oncology · Vol. 33 · Issue 6 · pp. 4955-4956</div>
-  <div class="pub-links"><a href="https://doi.org/10.1245/s10434-026-19463-x" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/41817935/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13154307/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2026"><div class="pub-year">2026</div><div>
-  <div class="pub-title">Pregnancy-associated cancer death in the United States, 2018-2023 <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors">Chen Y, <strong>Molina G</strong>, Zhang T, Furman LM, Abnet CC, Molina RL</div>
-  <div class="pub-journal">The oncologist · Vol. 31 · Issue 4</div>
-  <div class="pub-links"><a href="https://doi.org/10.1093/oncolo/oyag076" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/41795826/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12990296/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2026"><div class="pub-year">2026</div><div>
-  <div class="pub-title">ASO Education and Training: Taking the Next Step in Surgical Oncology Health Disparities Research: Identifying Root Causes and Targets for Actionable Change <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors">Cortina CS, <strong>Molina G</strong>, Witt EE, Myers SP, Obeng-Gyasi S, Ju T, et al.</div>
-  <div class="pub-journal">Annals of surgical oncology · Vol. 33 · Issue 6 · pp. 4928-4939</div>
-  <div class="pub-links"><a href="https://doi.org/10.1245/s10434-026-19221-z" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/41746573/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13005178/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2026"><div class="pub-year">2026</div><div>
-  <div class="pub-title">Critical Review of International Classification of Diseases, Ninth Revision to International Classification of Diseases, Tenth Revision System-Based Postoperative Surgical Complication Codes <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors">Kumar RS, Uribe-Leitz T, <strong>Molina G</strong>, Adler R, Clark CJ</div>
-  <div class="pub-journal">The Journal of surgical research · Vol. 318 · pp. 306-317</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/j.jss.2025.12.030" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/41576786/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12928604/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2026"><div class="pub-year">2026</div><div>
-  <div class="pub-title">Geospatial variation in the treatment of medicare beneficiary pancreatic cancer patients: A SEER-Medicare cohort study</div>
-  <div class="pub-authors">Liem MNE, Teeken MD, Ruan M, <strong>Molina G</strong></div>
-  <div class="pub-journal">American journal of surgery · Vol. 251 · pp. 116684</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/j.amjsurg.2025.116684" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/41176828/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2026"><div class="pub-year">2026</div><div>
-  <div class="pub-title">Redefining and Improving Patient Involvement in the Surgical Safety Checklist</div>
-  <div class="pub-authors">Carlson A, Hillas J, Brindle ME, Sonnay Y, Smink DS, <strong>Molina G</strong></div>
-  <div class="pub-journal">Annals of surgery · Vol. 283 · Issue 1 · pp. 37-39</div>
-  <div class="pub-links"><a href="https://doi.org/10.1097/SLA.0000000000006782" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/40504078/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2025"><div class="pub-year">2025</div><div>
-  <div class="pub-title">Trends in surgical treatment of stage IV melanoma: A SEER database study <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors">Farber ON, Chen YJ, <strong>Molina G</strong>, Monton O, Lilley EJ</div>
-  <div class="pub-journal">Surgical oncology insight · Vol. 2 · Issue 3</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/j.soi.2025.100176" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/40951259/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12431681/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2025"><div class="pub-year">2025</div><div>
-  <div class="pub-title">Acceptability of mobile health technology in elective surgery: A study of postoperative patients</div>
-  <div class="pub-authors">Sinyard RD, Anteby R, Margo J, <strong>Molina G</strong>, Kaelberer Z, Cauley CE, et al.</div>
-  <div class="pub-journal">Surgery · Vol. 186 · pp. 109523</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/j.surg.2025.109523" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/40695101/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2025"><div class="pub-year">2025</div><div>
-  <div class="pub-title">To Operate or Not to Operate? A Script Concordance Study of Resident Preoperative Decision-Making</div>
-  <div class="pub-authors">Soelling SJ, Hillas J, Clancy T, <strong>Molina G</strong>, Littleton EB, Smink DS</div>
-  <div class="pub-journal">The Journal of surgical research · Vol. 313 · pp. 141-147</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/j.jss.2025.06.037" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/40664113/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2025"><div class="pub-year">2025</div><div>
-  <div class="pub-title">Cross-specialty impact in the adoption of minimally invasive surgery in abdominal surgical oncology at the hospital level</div>
-  <div class="pub-authors">Pannekoek A, Melamed A, Rauh-Hain JA, <strong>Molina G</strong>, et al.</div>
-  <div class="pub-journal">Journal of robotic surgery · Vol. 19 · Issue 1 · pp. 366</div>
-  <div class="pub-links"><a href="https://doi.org/10.1007/s11701-025-02549-1" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/40632432/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2025"><div class="pub-year">2025</div><div>
-  <div class="pub-title">Assessment of nodal staging and risk factors for nodal involvement in gallbladder cancer <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors">Balakrishnan A, Barmpounakis P, Demiris N, Andersson B, Bra&ntilde;es A, de Aretxabala X, et al.</div>
-  <div class="pub-journal">BJS open · Vol. 9 · Issue 3</div>
-  <div class="pub-links"><a href="https://doi.org/10.1093/bjsopen/zraf056" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/40407730/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12100740/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2025"><div class="pub-year">2025</div><div>
-  <div class="pub-title">Distance Traveled by Colorectal Liver Metastasis Patients to the Nearest Cancer Hospital To Receive Liver Metastasectomy <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors">Pannekoek A, Ruan M, Brindle M, Trinh QD, <strong>Molina G</strong></div>
-  <div class="pub-journal">Cureus · Vol. 17 · Issue 4 · pp. e82250</div>
-  <div class="pub-links"><a href="https://doi.org/10.7759/cureus.82250" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/40370889/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12077808/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2025"><div class="pub-year">2025</div><div>
-  <div class="pub-title">Assessing Equity in Quality Care for Metastatic Pancreatic Cancer</div>
-  <div class="pub-authors"><strong>Molina G</strong>, Gold JS</div>
-  <div class="pub-journal">Journal of the National Comprehensive Cancer Network : JNCCN · Vol. 23 · Issue 4</div>
-  <div class="pub-links"><a href="https://doi.org/10.6004/jnccn.2025.7043" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/40203880/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2025"><div class="pub-year">2025</div><div>
-  <div class="pub-title">Still Not There Yet: Persistence of Racial and Ethnic Disparities in Declining Cancer Surgery</div>
-  <div class="pub-authors"><strong>Molina G</strong></div>
-  <div class="pub-journal">Annals of surgery · Vol. 281 · Issue 5 · pp. 720-722</div>
-  <div class="pub-links"><a href="https://doi.org/10.1097/SLA.0000000000006641" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/39866126/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2025"><div class="pub-year">2025</div><div>
-  <div class="pub-title">The Hispanic Paradox and the Rising Incidence and Mortality From Hepatobiliary and Gastric Cancers Among Hispanic Individuals in the United States: A Call for Surgeon Advocates</div>
-  <div class="pub-authors">Grobman B, Ortega G, <strong>Molina G</strong></div>
-  <div class="pub-journal">Annals of surgery · Vol. 281 · Issue 4 · pp. 556-558</div>
-  <div class="pub-links"><a href="https://doi.org/10.1097/SLA.0000000000006510" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/39176888/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2024"><div class="pub-year">2024</div><div>
-  <div class="pub-title">Impact of Tumor Response After Neoadjuvant Treatment on Overall Survival Among Patients With Pancreatic Ductal Adenocarcinoma: National Cancer Database Analysis <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors">Sulciner ML, Bailey M, Ruan M, <strong>Molina G</strong>, et al.</div>
-  <div class="pub-journal">Cureus · Vol. 16 · Issue 11 · pp. e73524</div>
-  <div class="pub-links"><a href="https://doi.org/10.7759/cureus.73524" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/39669828/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11636398/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2024"><div class="pub-year">2024</div><div>
-  <div class="pub-title">A new direction in quantifying cirrhosis to predict overall survival after liver surgical resection for hepatocellular carcinoma</div>
-  <div class="pub-authors">Sulciner ML, <strong>Molina G</strong></div>
-  <div class="pub-journal">American journal of surgery · Vol. 237 · pp. 115847</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/j.amjsurg.2024.115847" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/39060188/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2024"><div class="pub-year">2024</div><div>
-  <div class="pub-title">Adapting the World Health Organization's Surgical Safety Checklist to High-Income Settings: A Hybrid Effectiveness-Implementation Trial Protocol <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors">Turley N, Kogut K, Burian B, <strong>Molina G</strong>, et al.</div>
-  <div class="pub-journal">Annals of surgery open · Vol. 5 · Issue 2 · pp. e436</div>
-  <div class="pub-links"><a href="https://doi.org/10.1097/AS9.0000000000000436" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/38911631/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11191993/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2024"><div class="pub-year">2024</div><div>
-  <div class="pub-title">Correction: Surgical Utilization and Outcomes for Patients with Stage IV Melanoma in the Modern Immunotherapy Era</div>
-  <div class="pub-authors">Lwin TM, Kaelberer Z, Ruan M, <strong>Molina G</strong>, Boland G</div>
-  <div class="pub-journal">Annals of surgical oncology · Vol. 31 · Issue 9 · pp. 6126</div>
-  <div class="pub-links"><a href="https://doi.org/10.1245/s10434-024-15641-x" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/38910186/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2024"><div class="pub-year">2024</div><div>
-  <div class="pub-title">Remote Assessment of Real-World Surgical Safety Checklist Performance Using the OR Black Box: A Multi-Institutional Evaluation</div>
-  <div class="pub-authors">Riley MS, Etheridge J, Palter V, <strong>Molina G</strong>, et al.</div>
-  <div class="pub-journal">Journal of the American College of Surgeons · Vol. 238 · Issue 2 · pp. 206-215</div>
-  <div class="pub-links"><a href="https://doi.org/10.1097/XCS.0000000000000893" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/37846086/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2024"><div class="pub-year">2024</div><div>
-  <div class="pub-title">Lessons From Social Psychology to Improve the Implementation and Use of the Surgical Safety Checklist in the Operating Room</div>
-  <div class="pub-authors">Bailey M, Riley MS, Smink DS, Sonnay Y, Brindle M, <strong>Molina G</strong></div>
-  <div class="pub-journal">Annals of surgery · Vol. 279 · Issue 4 · pp. 585-587</div>
-  <div class="pub-links"><a href="https://doi.org/10.1097/SLA.0000000000006122" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/37818669/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2023"><div class="pub-year">2023</div><div>
-  <div class="pub-title">ASO Author Reflections: The Evolution of Surgery for Patients with Stage IV Melanoma</div>
-  <div class="pub-authors">Lwin T, <strong>Molina G</strong>, Boland G</div>
-  <div class="pub-journal">Annals of surgical oncology · Vol. 30 · Issue 8 · pp. 5013-5014</div>
-  <div class="pub-links"><a href="https://doi.org/10.1245/s10434-023-13646-6" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/37225835/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2023"><div class="pub-year">2023</div><div>
-  <div class="pub-title">Surgical outcomes of gallbladder cancer: the OMEGA retrospective, multicentre, international cohort study <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors">Balakrishnan A, Barmpounakis P, Demiris N, Jah A, Spiers HVM, Talukder S, et al.</div>
-  <div class="pub-journal">EClinicalMedicine · Vol. 59 · pp. 101951</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/j.eclinm.2023.101951" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/37125405/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10130604/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2023"><div class="pub-year">2023</div><div>
-  <div class="pub-title">Surgical Utilization and Outcomes for Patients with Stage IV Melanoma in the Modern Immunotherapy Era</div>
-  <div class="pub-authors">Lwin TM, Kaelberer Z, Ruan M, <strong>Molina G</strong>, Boland G</div>
-  <div class="pub-journal">Annals of surgical oncology · Vol. 30 · Issue 8 · pp. 5005-5012</div>
-  <div class="pub-links"><a href="https://doi.org/10.1245/s10434-023-13543-y" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/37121988/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2023"><div class="pub-year">2023</div><div>
-  <div class="pub-title">Association of Variation in US County-Level Rates of Liver Surgical Resection for Colorectal Liver Metastasis With Poverty Rates in 2010 <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors"><strong>Molina G</strong>, Ruan M, Lipsitz SR, Iyer HS, Hassett MJ, Brindle ME, et al.</div>
-  <div class="pub-journal">JAMA network open · Vol. 6 · Issue 2 · pp. e230797</div>
-  <div class="pub-links"><a href="https://doi.org/10.1001/jamanetworkopen.2023.0797" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/36848088/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9972196/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2023"><div class="pub-year">2023</div><div>
-  <div class="pub-title">Development of an Enhanced Recovery After Surgery Surgical Safety Checklist Through a Modified Delphi Process</div>
-  <div class="pub-authors">Pilkington M, Nelson G, Cauley C, Holder K, Ljungqvist O, <strong>Molina G</strong>, et al.</div>
-  <div class="pub-journal">JAMA network open · Vol. 6 · Issue 2 · pp. e2248460</div>
-  <div class="pub-links"><a href="https://doi.org/10.1001/jamanetworkopen.2022.48460" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/36753283/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2023"><div class="pub-year">2023</div><div>
-  <div class="pub-title">Association of hospital-level factors with utilization of sentinel lymph node biopsy in patients with early-stage vulvar cancer</div>
-  <div class="pub-authors">Bercow AS, Rauh-Hain JA, Melamed A, <strong>Molina G</strong>, et al.</div>
-  <div class="pub-journal">Gynecologic oncology · Vol. 169 · pp. 47-54</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/j.ygyno.2022.11.026" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/36508758/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2023"><div class="pub-year">2023</div><div>
-  <div class="pub-title">Medicaid expansion and surgery for HPB/GI cancers: NCDB difference-in-difference analysis <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors">Kaelberer Z, Ruan M, Lam MB, Brindle M, <strong>Molina G</strong></div>
-  <div class="pub-journal">American journal of surgery · Vol. 225 · Issue 2 · pp. 328-334</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/j.amjsurg.2022.09.004" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/36163038/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10150456/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2022"><div class="pub-year">2022</div><div>
-  <div class="pub-title">Guideline-Discordant Care in Early-Stage Vulvar Cancer</div>
-  <div class="pub-authors">Bercow AS, Rauh-Hain JA, Melamed A, <strong>Molina G</strong>, et al.</div>
-  <div class="pub-journal">Obstetrics and gynecology · Vol. 140 · Issue 6 · pp. 1031-1041</div>
-  <div class="pub-links"><a href="https://doi.org/10.1097/AOG.0000000000004992" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/36357957/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2022"><div class="pub-year">2022</div><div>
-  <div class="pub-title">Advances and Remaining Challenges in the Treatment for Borderline Resectable and Locally Advanced Pancreatic Ductal Adenocarcinoma <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors">Sulciner ML, Ashley SW, <strong>Molina G</strong></div>
-  <div class="pub-journal">Journal of clinical medicine · Vol. 11 · Issue 16</div>
-  <div class="pub-links"><a href="https://doi.org/10.3390/jcm11164866" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/36013111/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9410260/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2022"><div class="pub-year">2022</div><div>
-  <div class="pub-title">Association of Liver Resection and Visiting More Than One Commission on Cancer Hospital for Colorectal Cancer With Liver Metastasis</div>
-  <div class="pub-authors">Powell BL, Jones A, Clancy T, Fairweather M, Wang J, <strong>Molina G</strong></div>
-  <div class="pub-journal">The Journal of surgical research · Vol. 279 · pp. 247-255</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/j.jss.2022.06.003" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/35797752/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2022"><div class="pub-year">2022</div><div>
-  <div class="pub-title">Association between race, hospital volume of major liver surgery, and access to metastasectomy for colorectal liver metastasis</div>
-  <div class="pub-authors">Jones A, Kaelberer Z, Clancy T, Fairweather M, Wang J, <strong>Molina G</strong></div>
-  <div class="pub-journal">American journal of surgery · Vol. 224 · Issue 1 Pt B · pp. 522-529</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/j.amjsurg.2022.01.032" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/35125184/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2022"><div class="pub-year">2022</div><div>
-  <div class="pub-title">Socioeconomic Disparities in Pancreas Cancer Resection and Survival in the Veterans Health Administration <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors">Del Valle JP, Fillmore NR, <strong>Molina G</strong>, Fairweather M, Wang J, Clancy TE, et al.</div>
-  <div class="pub-journal">Annals of surgical oncology · Vol. 29 · Issue 5 · pp. 3194-3202</div>
-  <div class="pub-links"><a href="https://doi.org/10.1245/s10434-021-11250-0" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/35006509/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13171219/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2021"><div class="pub-year">2021</div><div>
-  <div class="pub-title">Are we appropriately following patients with incidental pancreatic cysts?</div>
-  <div class="pub-authors">Saadat LV, <strong>Molina G</strong></div>
-  <div class="pub-journal">American journal of surgery · Vol. 222 · Issue 5 · pp. 890-891</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/j.amjsurg.2021.08.040" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/34538609/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2021"><div class="pub-year">2021</div><div>
-  <div class="pub-title">The Other Global Pandemic: Scientific Racism and the Normality Bias</div>
-  <div class="pub-authors">Chang DC, Oseni TO, Strong BL, <strong>Molina G</strong>, Ortega G, Chen H, et al.</div>
-  <div class="pub-journal">Annals of surgery · Vol. 274 · Issue 6 · pp. e646-e648</div>
-  <div class="pub-links"><a href="https://doi.org/10.1097/SLA.0000000000005168" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/34387208/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2021"><div class="pub-year">2021</div><div>
-  <div class="pub-title">Effect of Physician-Delivered COVID-19 Public Health Messages and Messages Acknowledging Racial Inequity on Black and White Adults' Knowledge, Beliefs, and Practices Related to COVID-19: A Randomized Clinical Trial <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors">Torres C, Ogbu-Nwobodo L, Alsan M, Stanford FC, Banerjee A, Breza E, et al.</div>
-  <div class="pub-journal">JAMA network open · Vol. 4 · Issue 7 · pp. e2117115</div>
-  <div class="pub-links"><a href="https://doi.org/10.1001/jamanetworkopen.2021.17115" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/34259846/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8280971/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2021"><div class="pub-year">2021</div><div>
-  <div class="pub-title">Redeployment of Health Care Workers in the COVID-19 Pandemic: A Qualitative Study of Health System Leaders' Strategies</div>
-  <div class="pub-authors">Panda N, Sinyard RD, Henrich N, <strong>Molina G</strong>, et al.</div>
-  <div class="pub-journal">Journal of patient safety · Vol. 17 · Issue 4 · pp. 256-263</div>
-  <div class="pub-links"><a href="https://doi.org/10.1097/PTS.0000000000000847" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/33797460/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2021"><div class="pub-year">2021</div><div>
-  <div class="pub-title">We Asked the Experts: The WHO Surgical Safety Checklist and the COVID-19 Pandemic: Recommendations for Content and Implementation Adaptations <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors">Panda N, Etheridge JC, Singh T, Sonnay Y, <strong>Molina G</strong>, Burian BK, et al.</div>
-  <div class="pub-journal">World journal of surgery · Vol. 45 · Issue 5 · pp. 1293-1296</div>
-  <div class="pub-links"><a href="https://doi.org/10.1007/s00268-021-06000-y" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/33638023/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7908955/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2021"><div class="pub-year">2021</div><div>
-  <div class="pub-title">CT and MRI features differentiating mucinous cystic neoplasms of the liver from pathologically simple cysts</div>
-  <div class="pub-authors">Anderson MA, Dhami RS, Fadzen CM, <strong>Molina G</strong>, Taylor MS, Deshpande V, et al.</div>
-  <div class="pub-journal">Clinical imaging · Vol. 76 · pp. 46-52</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/j.clinimag.2021.01.036" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/33549919/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2021"><div class="pub-year">2021</div><div>
-  <div class="pub-title">Open hepatic resection in the elderly at two tertiary referral centers</div>
-  <div class="pub-authors">Mueller JL, <strong>Molina G</strong>, Ferrone CR, Chang DC, Vagefi P, Tanabe KK, et al.</div>
-  <div class="pub-journal">American journal of surgery · Vol. 222 · Issue 3 · pp. 594-598</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/j.amjsurg.2021.01.024" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/33518291/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2021"><div class="pub-year">2021</div><div>
-  <div class="pub-title">Racial Disparity in Pancreatoduodenectomy for Borderline Resectable Pancreatic Adenocarcinoma</div>
-  <div class="pub-authors"><strong>Molina G</strong>, Clancy TE, Tsai TC, Lam M, Wang J</div>
-  <div class="pub-journal">Annals of surgical oncology · Vol. 28 · Issue 2 · pp. 1088-1096</div>
-  <div class="pub-links"><a href="https://doi.org/10.1245/s10434-020-08717-x" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/32651695/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2020"><div class="pub-year">2020</div><div>
-  <div class="pub-title">Assessment of Time-to-Treatment Initiation and Survival in a Cohort of Patients With Common Cancers <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors">Cone EB, Marchese M, Paciotti M, <strong>Molina G</strong>, et al.</div>
-  <div class="pub-journal">JAMA network open · Vol. 3 · Issue 12 · pp. e2030072</div>
-  <div class="pub-links"><a href="https://doi.org/10.1001/jamanetworkopen.2020.30072" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/33315115/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7737088/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2020"><div class="pub-year">2020</div><div>
-  <div class="pub-title">Virtual Interviews for the Complex General Surgical Oncology Fellowship: The Dana-Farber/Partners Experience <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors"><strong>Molina G</strong>, Mehtsun WT, Qadan M, Hause KC, Raut CP, Fairweather M</div>
-  <div class="pub-journal">Annals of surgical oncology · Vol. 27 · Issue 9 · pp. 3103-3106</div>
-  <div class="pub-links"><a href="https://doi.org/10.1245/s10434-020-08778-y" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/32613367/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7328646/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2020"><div class="pub-year">2020</div><div>
-  <div class="pub-title">Failure to Refer Patients with Colorectal Liver Metastases to a Multidisciplinary Oncology Team Should be a "Never-Event"</div>
-  <div class="pub-authors"><strong>Molina G</strong>, Ferrone CR, Qadan M</div>
-  <div class="pub-journal">Journal of the National Medical Association · Vol. 112 · Issue 5 · pp. 553-555</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/j.jnma.2020.05.009" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/32576388/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2020"><div class="pub-year">2020</div><div>
-  <div class="pub-title">Mixed Response to Immunotherapy in Patients with Metastatic Melanoma <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors">Rauwerdink DJW, <strong>Molina G</strong>, Frederick DT, Sharova T, van der Hage J, Cohen S, et al.</div>
-  <div class="pub-journal">Annals of surgical oncology · Vol. 27 · Issue 9 · pp. 3488-3497</div>
-  <div class="pub-links"><a href="https://doi.org/10.1245/s10434-020-08657-6" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/32472413/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7410859/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2020"><div class="pub-year">2020</div><div>
-  <div class="pub-title">Adjuvant Therapy Failure Patterns in the Modern Era of Melanoma Management</div>
-  <div class="pub-authors">Rauwerdink DJW, <strong>Molina G</strong>, Frederick DT, Sharova T, Carmichael H, Boland GM</div>
-  <div class="pub-journal">Annals of surgical oncology · Vol. 27 · Issue 13 · pp. 5128-5136</div>
-  <div class="pub-links"><a href="https://doi.org/10.1245/s10434-020-08631-2" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/32447656/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2020"><div class="pub-year">2020</div><div>
-  <div class="pub-title">ASO Author Reflections: The Importance of Supporting the Mental Health of Patients Undergoing Elective Pancreatectomy</div>
-  <div class="pub-authors"><strong>Molina G</strong>, Qadan M</div>
-  <div class="pub-journal">Annals of surgical oncology · Vol. 27 · Issue 11 · pp. 4551-4552</div>
-  <div class="pub-links"><a href="https://doi.org/10.1245/s10434-020-08555-x" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/32378084/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2020"><div class="pub-year">2020</div><div>
-  <div class="pub-title">Diagnosis of Depression is Associated with Readmission Following Elective Pancreatectomy</div>
-  <div class="pub-authors"><strong>Molina G</strong>, Sell NM, Fern&aacute;ndez-Del Castillo C, Ferrone CR, Lillemoe KD, Qadan M</div>
-  <div class="pub-journal">Annals of surgical oncology · Vol. 27 · Issue 11 · pp. 4544-4550</div>
-  <div class="pub-links"><a href="https://doi.org/10.1245/s10434-020-08522-6" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/32356271/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2020"><div class="pub-year">2020</div><div>
-  <div class="pub-title">Correction to: Global Survey of Perceptions of the Surgical Safety Checklist Among Medical Students, Trainees, and Early Career Providers</div>
-  <div class="pub-authors">Panda N, Koritsanszky L, Delisle M, <strong>Molina G</strong>, et al.</div>
-  <div class="pub-journal">World journal of surgery · Vol. 44 · Issue 9 · pp. 2869</div>
-  <div class="pub-links"><a href="https://doi.org/10.1007/s00268-020-05550-x" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/32347349/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2020"><div class="pub-year">2020</div><div>
-  <div class="pub-title">Global Survey of Perceptions of the Surgical Safety Checklist Among Medical Students, Trainees, and Early Career Providers <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors">Panda N, Koritsanszky L, Delisle M, <strong>Molina G</strong>, et al.</div>
-  <div class="pub-journal">World journal of surgery · Vol. 44 · Issue 9 · pp. 2857-2868</div>
-  <div class="pub-links"><a href="https://doi.org/10.1007/s00268-020-05518-x" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/32307554/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7390667/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2020"><div class="pub-year">2020</div><div>
-  <div class="pub-title">Use of immunotherapy and surgery for stage IV melanoma</div>
-  <div class="pub-authors"><strong>Molina G</strong>, Kasumova GG, Qadan M, Boland GM</div>
-  <div class="pub-journal">Cancer · Vol. 126 · Issue 11 · pp. 2614-2624</div>
-  <div class="pub-links"><a href="https://doi.org/10.1002/cncr.32817" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/32157676/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2020"><div class="pub-year">2020</div><div>
-  <div class="pub-title">Neoadjuvant Therapy is Associated with Improved Survival in Borderline-Resectable Pancreatic Cancer</div>
-  <div class="pub-authors">Chawla A, <strong>Molina G</strong>, Pak LM, Rosenthal M, Mancias JD, Clancy TE, et al.</div>
-  <div class="pub-journal">Annals of surgical oncology · Vol. 27 · Issue 4 · pp. 1191-1200</div>
-  <div class="pub-links"><a href="https://doi.org/10.1245/s10434-019-08087-z" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/31802297/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2019"><div class="pub-year">2019</div><div>
-  <div class="pub-title">Global variation in anastomosis and end colostomy formation following left-sided colorectal resection <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors"></div>
-  <div class="pub-journal">BJS open · Vol. 3 · Issue 3 · pp. 403-414</div>
-  <div class="pub-links"><a href="https://doi.org/10.1002/bjs5.50138" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/31891112/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6921967/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2019"><div class="pub-year">2019</div><div>
-  <div class="pub-title">Addressing fragmentation of care requires strengthening of health systems and cross-institutional collaboration</div>
-  <div class="pub-authors"><strong>Molina G</strong>, Qadan M</div>
-  <div class="pub-journal">Cancer · Vol. 125 · Issue 19 · pp. 3296-3298</div>
-  <div class="pub-links"><a href="https://doi.org/10.1002/cncr.32337" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/31299086/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2019"><div class="pub-year">2019</div><div>
-  <div class="pub-title">Pooled analysis of WHO Surgical Safety Checklist use and mortality after emergency laparotomy <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors"></div>
-  <div class="pub-journal">The British journal of surgery · Vol. 106 · Issue 2 · pp. e103-e112</div>
-  <div class="pub-links"><a href="https://doi.org/10.1002/bjs.11051" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/30620059/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6492154/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2018"><div class="pub-year">2018</div><div>
-  <div class="pub-title">Culturally Competent Science</div>
-  <div class="pub-authors">Chang DC, L&oacute;pez DB, <strong>Molina G</strong></div>
-  <div class="pub-journal">JAMA surgery · Vol. 153 · Issue 8 · pp. 699-700</div>
-  <div class="pub-links"><a href="https://doi.org/10.1001/jamasurg.2018.0877" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/29874374/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2018"><div class="pub-year">2018</div><div>
-  <div class="pub-title">Laparoscopy in management of appendicitis in high-, middle-, and low-income countries: a multicenter, prospective, cohort study <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors"></div>
-  <div class="pub-journal">Surgical endoscopy · Vol. 32 · Issue 8 · pp. 3450-3466</div>
-  <div class="pub-links"><a href="https://doi.org/10.1007/s00464-018-6064-9" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/29623470/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6061087/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2018"><div class="pub-year">2018</div><div>
-  <div class="pub-title">Pudendal nerve terminal motor latency testing does not provide useful information in guiding therapy for fecal incontinence</div>
-  <div class="pub-authors">Saraidaridis JT, <strong>Molina G</strong>, Savit LR, Milch H, Mei T, Chin S, et al.</div>
-  <div class="pub-journal">International journal of colorectal disease · Vol. 33 · Issue 3 · pp. 305-310</div>
-  <div class="pub-links"><a href="https://doi.org/10.1007/s00384-017-2959-5" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/29330765/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2017"><div class="pub-year">2017</div><div>
-  <div class="pub-title">Mortality Trends After a Voluntary Checklist-based Surgical Safety Collaborative</div>
-  <div class="pub-authors">Haynes AB, Edmondson L, Lipsitz SR, <strong>Molina G</strong>, Neville BA, Singer SJ, et al.</div>
-  <div class="pub-journal">Annals of surgery · Vol. 266 · Issue 6 · pp. 923-929</div>
-  <div class="pub-links"><a href="https://doi.org/10.1097/SLA.0000000000002249" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/29140848/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2017"><div class="pub-year">2017</div><div>
-  <div class="pub-title">Variation in the cost of 5 common operations in the United States</div>
-  <div class="pub-authors">Wakeam E, <strong>Molina G</strong>, Shah N, Lipsitz SR, Chang DC, Gawande AA, et al.</div>
-  <div class="pub-journal">Surgery · Vol. 162 · Issue 3 · pp. 592-604</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/j.surg.2017.04.016" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/28728882/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2017"><div class="pub-year">2017</div><div>
-  <div class="pub-title">Perception of Safety of Surgical Practice Among Operating Room Personnel From Survey Data Is Associated With All-cause 30-day Postoperative Death Rate in South Carolina</div>
-  <div class="pub-authors"><strong>Molina G</strong>, Berry WR, Lipsitz SR, Edmondson L, Li Z, Neville BA, et al.</div>
-  <div class="pub-journal">Annals of surgery · Vol. 266 · Issue 4 · pp. 658-666</div>
-  <div class="pub-links"><a href="https://doi.org/10.1097/SLA.0000000000002378" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/28657942/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2017"><div class="pub-year">2017</div><div>
-  <div class="pub-title">Narrative feedback from OR personnel about the safety of their surgical practice before and after a surgical safety checklist intervention</div>
-  <div class="pub-authors">Alidina S, Hur HC, Berry WR, <strong>Molina G</strong>, Guenthner G, Modest AM, et al.</div>
-  <div class="pub-journal">International journal for quality in health care · Vol. 29 · Issue 4 · pp. 461-469</div>
-  <div class="pub-links"><a href="https://doi.org/10.1093/intqhc/mzx050" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/28482011/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2017"><div class="pub-year">2017</div><div>
-  <div class="pub-title">Improved local control with an aggressive strategy of preoperative radiation therapy combined with radical surgical resection for retroperitoneal sarcoma</div>
-  <div class="pub-authors">Hull MA, <strong>Molina G</strong>, Niemierko A, Haynes AB, Jacobson A, Bernstein KA, et al.</div>
-  <div class="pub-journal">Journal of surgical oncology · Vol. 115 · Issue 6 · pp. 746-751</div>
-  <div class="pub-links"><a href="https://doi.org/10.1002/jso.24557" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/28127762/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2016"><div class="pub-year">2016</div><div>
-  <div class="pub-title">Preoperative radiation therapy combined with radical surgical resection is associated with a lower rate of local recurrence when treating unifocal, primary retroperitoneal liposarcoma</div>
-  <div class="pub-authors"><strong>Molina G</strong>, Hull MA, Chen YL, DeLaney TF, De Amorim Bernstein K, Choy E, et al.</div>
-  <div class="pub-journal">Journal of surgical oncology · Vol. 114 · Issue 7 · pp. 814-820</div>
-  <div class="pub-links"><a href="https://doi.org/10.1002/jso.24427" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/27634478/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2016"><div class="pub-year">2016</div><div>
-  <div class="pub-title">Postoperative acute care use after freestanding ambulatory surgery</div>
-  <div class="pub-authors"><strong>Molina G</strong>, Neville BA, Lipsitz SR, Gibbons L, Childers AK, Gawande AA, et al.</div>
-  <div class="pub-journal">The Journal of surgical research · Vol. 205 · Issue 2 · pp. 331-340</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/j.jss.2016.06.084" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/27664881/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2016"><div class="pub-year">2016</div><div>
-  <div class="pub-title">Relationship Between Operating Room Teamwork, Contextual Factors, and Safety Checklist Performance</div>
-  <div class="pub-authors">Singer SJ, <strong>Molina G</strong>, Li Z, Jiang W, Nurudeen S, Kite JG, et al.</div>
-  <div class="pub-journal">Journal of the American College of Surgeons · Vol. 223 · Issue 4 · pp. 568-580</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/j.jamcollsurg.2016.07.006" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/27469627/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2016"><div class="pub-year">2016</div><div>
-  <div class="pub-title">Maternal and Neonatal Mortality After Cesarean Delivery — Reply</div>
-  <div class="pub-authors"><strong>Molina G</strong>, Weiser TG, Haynes AB</div>
-  <div class="pub-journal">JAMA · Vol. 315 · Issue 18 · pp. 2017</div>
-  <div class="pub-links"><a href="https://doi.org/10.1001/jama.2016.0927" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/27163993/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2016"><div class="pub-year">2016</div><div>
-  <div class="pub-title">Implementation of the Surgical Safety Checklist in South Carolina Hospitals Is Associated with Improvement in Perceived Perioperative Safety</div>
-  <div class="pub-authors"><strong>Molina G</strong>, Jiang W, Edmondson L, Gibbons L, Huang LC, Kiang MV, et al.</div>
-  <div class="pub-journal">Journal of the American College of Surgeons · Vol. 222 · Issue 5 · pp. 725-736</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/j.jamcollsurg.2015.12.052" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/27049781/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2016"><div class="pub-year">2016</div><div>
-  <div class="pub-title">Size and distribution of the global volume of surgery in 2012 <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors">Weiser TG, Haynes AB, <strong>Molina G</strong>, Lipsitz SR, Esquivel MM, Uribe-Leitz T, et al.</div>
-  <div class="pub-journal">Bulletin of the World Health Organization · Vol. 94 · Issue 3 · pp. 201-209F</div>
-  <div class="pub-links"><a href="https://doi.org/10.2471/BLT.15.159293" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/26966331/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4773932/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2016"><div class="pub-year">2016</div><div>
-  <div class="pub-title">Transanal endoscopic resection with peritoneal entry: a word of caution</div>
-  <div class="pub-authors"><strong>Molina G</strong>, Bordeianou L, Shellito P, Sylla P</div>
-  <div class="pub-journal">Surgical endoscopy · Vol. 30 · Issue 5 · pp. 1816-25</div>
-  <div class="pub-links"><a href="https://doi.org/10.1007/s00464-015-4452-y" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/26264697/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2015"><div class="pub-year">2015</div><div>
-  <div class="pub-title">Relationship Between Cesarean Delivery Rate and Maternal and Neonatal Mortality</div>
-  <div class="pub-authors"><strong>Molina G</strong>, Weiser TG, Lipsitz SR, Esquivel MM, Uribe-Leitz T, Azad T, et al.</div>
-  <div class="pub-journal">JAMA · Vol. 314 · Issue 21 · pp. 2263-70</div>
-  <div class="pub-links"><a href="https://doi.org/10.1001/jama.2015.15553" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/26624825/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2015"><div class="pub-year">2015</div><div>
-  <div class="pub-title">Avoidable maternal and neonatal deaths associated with improving access to caesarean delivery in countries with low caesarean delivery rates</div>
-  <div class="pub-authors"><strong>Molina G</strong>, Esquivel MM, Uribe-Leitz T, Lipsitz SR, Azad T, Shah N, et al.</div>
-  <div class="pub-journal">Lancet · Vol. 385 Suppl 2 · pp. S33</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/S0140-6736(15)60828-5" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/26313081/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2015"><div class="pub-year">2015</div><div>
-  <div class="pub-title">Projections to achieve minimum surgical rate threshold: an observational study</div>
-  <div class="pub-authors">Uribe-Leitz T, Esquivel MM, <strong>Molina G</strong>, Lipsitz SR, Verguet S, Rose J, et al.</div>
-  <div class="pub-journal">Lancet · Vol. 385 Suppl 2 · pp. S14</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/S0140-6736(15)60809-1" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/26313060/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2015"><div class="pub-year">2015</div><div>
-  <div class="pub-title">Proposed minimum rates of surgery to support desirable health outcomes: an observational study based on four strategies</div>
-  <div class="pub-authors">Esquivel MM, <strong>Molina G</strong>, Uribe-Leitz T, Lipsitz SR, Rose J, Bickler SW, et al.</div>
-  <div class="pub-journal">Lancet · Vol. 385 Suppl 2 · pp. S12</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/S0140-6736(15)60807-8" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/26313058/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2015"><div class="pub-year">2015</div><div>
-  <div class="pub-title">Estimate of the global volume of surgery in 2012: an assessment supporting improved health outcomes</div>
-  <div class="pub-authors">Weiser TG, Haynes AB, <strong>Molina G</strong>, Lipsitz SR, Esquivel MM, Uribe-Leitz T, et al.</div>
-  <div class="pub-journal">Lancet · Vol. 385 Suppl 2 · pp. S11</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/S0140-6736(15)60806-6" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/26313057/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2015"><div class="pub-year">2015</div><div>
-  <div class="pub-title">Projections for Achieving the Lancet Commission Recommended Surgical Rate of 5000 Operations per 100,000 Population by Region-Specific Surgical Rate Estimates</div>
-  <div class="pub-authors">Uribe-Leitz T, Esquivel MM, <strong>Molina G</strong>, Lipsitz SR, Verguet S, Rose J, et al.</div>
-  <div class="pub-journal">World journal of surgery · Vol. 39 · Issue 9 · pp. 2168-72</div>
-  <div class="pub-links"><a href="https://doi.org/10.1007/s00268-015-3113-6" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/26067635/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2015"><div class="pub-year">2015</div><div>
-  <div class="pub-title">Proposed Minimum Rates of Surgery to Support Desirable Health Outcomes: An Observational Study Based on Three Strategies</div>
-  <div class="pub-authors">Esquivel MM, <strong>Molina G</strong>, Uribe-Leitz T, Lipsitz SR, Rose J, Bickler S, et al.</div>
-  <div class="pub-journal">World journal of surgery · Vol. 39 · Issue 9 · pp. 2126-31</div>
-  <div class="pub-links"><a href="https://doi.org/10.1007/s00268-015-3092-7" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/25968342/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2015"><div class="pub-year">2015</div><div>
-  <div class="pub-title">Timing and cost of scaling up surgical services in low-income and middle-income countries from 2012 to 2030: a modelling study</div>
-  <div class="pub-authors">Verguet S, Alkire BC, Bickler SW, Lauer JA, Uribe-Leitz T, <strong>Molina G</strong>, et al.</div>
-  <div class="pub-journal">The Lancet Global health · Vol. 3 Suppl 2 · pp. S28-37</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/S2214-109X(15)70086-0" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/25926318/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2015"><div class="pub-year">2015</div><div>
-  <div class="pub-title">Global access to surgical care: a modelling study <span class="pub-badge">Open Access</span></div>
-  <div class="pub-authors">Alkire BC, Raykar NP, Shrime MG, <strong>Molina G</strong>, et al.</div>
-  <div class="pub-journal">The Lancet Global health · Vol. 3 · Issue 6 · pp. e316-23</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/S2214-109X(15)70115-4" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/25926087/" class="pub-link">PubMed</a><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4820251/" class="pub-link">PDF</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2015"><div class="pub-year">2015</div><div>
-  <div class="pub-title">Roux-en-Y gastric bypass is associated with an increased exposure to ionizing radiation</div>
-  <div class="pub-authors">Nau P, <strong>Molina G</strong>, Shima A, Hani A, Meireles O</div>
-  <div class="pub-journal">Surgery for obesity and related diseases · Vol. 11 · Issue 2 · pp. 308-12</div>
-  <div class="pub-links"><a href="https://doi.org/10.1016/j.soard.2014.07.022" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/25820075/" class="pub-link">PubMed</a></div>
-</div></div>
-
-<div class="pub-item" data-year="2013"><div class="pub-year">2013</div><div>
-  <div class="pub-title">Evaluation of surgical care in El Salvador using the WHO surgical vital statistics</div>
-  <div class="pub-authors"><strong>Molina G</strong>, Funk LM, Rodriguez V, Lipsitz SR, Gawande A</div>
-  <div class="pub-journal">World journal of surgery · Vol. 37 · Issue 6 · pp. 1227-35</div>
-  <div class="pub-links"><a href="https://doi.org/10.1007/s00268-013-1990-0" class="pub-link">DOI</a><a href="https://pubmed.ncbi.nlm.nih.gov/23525599/" class="pub-link">PubMed</a></div>
-</div></div>
-
-    </div><!-- /#pubList -->
-
-    <div style="margin-top:1.5rem;" class="fade-in">
-      <a href="https://scholar.google.com/citations?user=_fsn1ZQAAAAJ&hl=en" target="_blank" class="pub-link" style="font-size:12px;">View full publication list on Google Scholar &rarr;</a>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
 <section id="projects">
   <div class="section-inner">
     <div class="section-header fade-in">
-      <span class="section-num">03</span>
+      <span class="section-num">02</span>
       <h2 class="section-title">Research Projects</h2>
     </div>
     <div class="projects-accordion fade-in">
 
       <div class="acc-item">
         <button class="acc-header" onclick="toggleAcc(this)">
-          <div class="acc-left">
-            <span class="acc-num">01</span>
-            <span class="acc-title">Adjuvant Chemotherapy After Pathologic Complete Response in Pancreatic Ductal Adenocarcinoma</span>
-          </div>
-          <div class="acc-meta">
-            <span class="acc-status"><span class="status-dot"></span> Active</span>
-            <span class="acc-arrow">+</span>
-          </div>
+          <div class="acc-left"><span class="acc-num">01</span><span class="acc-title">Adjuvant Chemotherapy After Pathologic Complete Response in Pancreatic Ductal Adenocarcinoma</span></div>
+          <div class="acc-meta"><span class="acc-status"><span class="status-dot"></span> Active</span><span class="acc-arrow">+</span></div>
         </button>
         <div class="acc-body">
           <p>This study evaluates the benefit of adjuvant chemotherapy in patients with pancreatic ductal adenocarcinoma who achieve a pathologic complete response after neoadjuvant treatment, using the National Cancer Database.</p>
@@ -1060,14 +222,8 @@
 
       <div class="acc-item">
         <button class="acc-header" onclick="toggleAcc(this)">
-          <div class="acc-left">
-            <span class="acc-num">02</span>
-            <span class="acc-title">Targeted Trial Emulation: Neoadjuvant vs. Upfront Surgery in Resectable Pancreatic Ductal Adenocarcinoma</span>
-          </div>
-          <div class="acc-meta">
-            <span class="acc-status"><span class="status-dot"></span> Active</span>
-            <span class="acc-arrow">+</span>
-          </div>
+          <div class="acc-left"><span class="acc-num">02</span><span class="acc-title">Targeted Trial Emulation: Neoadjuvant vs. Upfront Surgery in Resectable Pancreatic Ductal Adenocarcinoma</span></div>
+          <div class="acc-meta"><span class="acc-status"><span class="status-dot"></span> Active</span><span class="acc-arrow">+</span></div>
         </button>
         <div class="acc-body">
           <p>Using target trial emulation in the National Cancer Database to estimate the per-protocol effect of neoadjuvant chemotherapy followed by surgery versus upfront surgery followed by adjuvant chemotherapy on overall survival among patients with resectable pancreatic ductal adenocarcinoma.</p>
@@ -1077,14 +233,8 @@
 
       <div class="acc-item">
         <button class="acc-header" onclick="toggleAcc(this)">
-          <div class="acc-left">
-            <span class="acc-num">03</span>
-            <span class="acc-title">Impact of Neoadjuvant Radiation on Margin Status and Local Recurrence in Pancreatic Ductal Adenocarcinoma</span>
-          </div>
-          <div class="acc-meta">
-            <span class="acc-status"><span class="status-dot"></span> Active</span>
-            <span class="acc-arrow">+</span>
-          </div>
+          <div class="acc-left"><span class="acc-num">03</span><span class="acc-title">Impact of Neoadjuvant Radiation on Margin Status and Local Recurrence in Pancreatic Ductal Adenocarcinoma</span></div>
+          <div class="acc-meta"><span class="acc-status"><span class="status-dot"></span> Active</span><span class="acc-arrow">+</span></div>
         </button>
         <div class="acc-body">
           <p>Evaluating the association between neoadjuvant radiation and margin status and local recurrence among patients with pancreatic ductal adenocarcinoma of the head of the pancreas who underwent curative-intent surgery at a high-volume cancer center.</p>
@@ -1094,14 +244,8 @@
 
       <div class="acc-item">
         <button class="acc-header" onclick="toggleAcc(this)">
-          <div class="acc-left">
-            <span class="acc-num">04</span>
-            <span class="acc-title">Institutional Variation in Multidisciplinary Care for Metastatic Colorectal Cancer</span>
-          </div>
-          <div class="acc-meta">
-            <span class="acc-status"><span class="status-dot"></span> Active</span>
-            <span class="acc-arrow">+</span>
-          </div>
+          <div class="acc-left"><span class="acc-num">04</span><span class="acc-title">Institutional Variation in Multidisciplinary Care for Metastatic Colorectal Cancer</span></div>
+          <div class="acc-meta"><span class="acc-status"><span class="status-dot"></span> Active</span><span class="acc-arrow">+</span></div>
         </button>
         <div class="acc-body">
           <p>Characterizing how multidisciplinary metastatic colorectal cancer programs are structured and implemented across U.S. cancer centers and identifying key factors that facilitate or hinder their establishment and sustainability, with the long-term objective of improving equitable access to high-quality multidisciplinary care.</p>
@@ -1111,14 +255,8 @@
 
       <div class="acc-item">
         <button class="acc-header" onclick="toggleAcc(this)">
-          <div class="acc-left">
-            <span class="acc-num">05</span>
-            <span class="acc-title">Economics of Cancer Care</span>
-          </div>
-          <div class="acc-meta">
-            <span class="acc-status"><span class="status-dot"></span> Active</span>
-            <span class="acc-arrow">+</span>
-          </div>
+          <div class="acc-left"><span class="acc-num">05</span><span class="acc-title">Economics of Cancer Care</span></div>
+          <div class="acc-meta"><span class="acc-status"><span class="status-dot"></span> Active</span><span class="acc-arrow">+</span></div>
         </button>
         <div class="acc-body">
           <p>An in-depth analysis of health care spending and utilization for individuals with cancer, assessing use of various cancer treatments, clinical outcomes, and opportunities for high-value care delivery.</p>
@@ -1130,15 +268,13 @@
   </div>
 </section>
 
-<!-- BLOG -->
 <section id="blog">
   <div class="section-inner">
     <div class="section-header fade-in">
-      <span class="section-num">04</span>
+      <span class="section-num">03</span>
       <h2 class="section-title">Writing</h2>
     </div>
     <div class="blog-list fade-in">
-
       <a href="AI-Paper-02-2026.pdf" class="blog-item">
         <div class="blog-date">February 2026</div>
         <div>
@@ -1150,20 +286,16 @@
           <div class="blog-tag">Opinion &nbsp;·&nbsp; <span style="color:#8a8a8a;">Unpublished manuscript</span></div>
         </div>
       </a>
-
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
     <div class="section-header fade-in">
-      <span class="section-num">05</span>
+      <span class="section-num">04</span>
       <h2 class="section-title">Contact</h2>
     </div>
-
-    <!-- SUPPORT / PHILANTHROPY BLOCK -->
     <div class="fade-in" style="background:var(--navy);border:1px solid var(--navy-light);padding:2.5rem;margin-bottom:3rem;">
       <div style="font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:var(--gold);margin-bottom:1rem;">Support Our Work</div>
       <h3 style="font-family:var(--display);font-size:2rem;font-weight:400;color:var(--cream);margin-bottom:1.25rem;line-height:1.2;">Support Research That Improves Cancer Care</h3>
@@ -1180,12 +312,8 @@
       <p style="font-size:0.97rem;color:#a8c4d8;line-height:1.85;font-style:italic;margin-bottom:1.5rem;">Together, we can create a future where cancer care is more equitable, coordinated, innovative, and effective for every patient and family.</p>
       <p style="font-size:0.93rem;color:#8fadc4;line-height:1.85;">To learn more about supporting our work or making a contribution, please contact us below. Your partnership can make a meaningful and lasting impact.</p>
     </div>
-
-    <!-- CONTACT FORM -->
     <div class="fade-in" style="max-width:560px;margin:0 auto;">
-      <p style="font-size:0.97rem;color:var(--text-muted);margin-bottom:2rem;line-height:1.8;">
-        Please fill out the form below and I will be in touch.
-      </p>
+      <p style="font-size:0.97rem;color:var(--text-muted);margin-bottom:2rem;line-height:1.8;">Please fill out the form below and I will be in touch.</p>
       <form class="contact-form" id="contactForm">
         <input type="text" name="name" placeholder="Your full name" required />
         <input type="email" name="email" placeholder="Your email address" required />
@@ -1200,19 +328,13 @@
         <input type="text" name="institution" placeholder="Your institution or affiliation" />
         <textarea name="message" placeholder="Your message…" required></textarea>
         <button type="submit" id="submitBtn">Send Message</button>
-        <div id="formMsg" style="font-family:var(--mono);font-size:11px;color:var(--gold);display:none;">
-          Message sent — thank you. I will respond within a few business days.
-        </div>
-        <div id="formErr" style="font-family:var(--mono);font-size:11px;color:#c0392b;display:none;">
-          Something went wrong. Please try again.
-        </div>
+        <div id="formMsg" style="font-family:var(--mono);font-size:11px;color:var(--gold);display:none;">Message sent — thank you. I will respond within a few business days.</div>
+        <div id="formErr" style="font-family:var(--mono);font-size:11px;color:#c0392b;display:none;">Something went wrong. Please try again.</div>
       </form>
     </div>
-
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-copy">&copy; 2026 George Molina</div>
   <div class="footer-links">
@@ -1222,67 +344,31 @@
 </footer>
 
 <script>
-  // Scroll fade-in
   const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-    });
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 
-  // Publication filter
-  function filterPubs(filter, btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.pub-item').forEach(item => {
-      const yr = parseInt(item.dataset.year);
-      let show = true;
-      if (filter === '2024') show = yr >= 2024;
-      else if (filter === '2022') show = yr >= 2022 && yr < 2024;
-      else if (filter === 'older') show = yr < 2022;
-      item.style.display = show ? 'grid' : 'none';
-    });
-  }
+  function toggleAcc(btn) { btn.closest('.acc-item').classList.toggle('open'); }
 
-  // Accordion
-  function toggleAcc(btn) {
-    btn.closest('.acc-item').classList.toggle('open');
-  }
-
-  // Contact form
   document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const btn = document.getElementById('submitBtn');
-    btn.textContent = 'Sending…';
-    btn.disabled = true;
+    btn.textContent = 'Sending…'; btn.disabled = true;
     try {
-      const res = await fetch('https://formspree.io/f/meedgvjr', {
-        method: 'POST',
-        body: new FormData(this),
-        headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) {
-        document.getElementById('formMsg').style.display = 'block';
-        document.getElementById('formErr').style.display = 'none';
-        this.reset();
-      } else { throw new Error(); }
-    } catch {
-      document.getElementById('formErr').style.display = 'block';
-      document.getElementById('formMsg').style.display = 'none';
-    }
-    btn.textContent = 'Send Message';
-    btn.disabled = false;
+      const res = await fetch('https://formspree.io/f/meedgvjr', { method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' } });
+      if (res.ok) { document.getElementById('formMsg').style.display = 'block'; document.getElementById('formErr').style.display = 'none'; this.reset(); }
+      else throw new Error();
+    } catch { document.getElementById('formErr').style.display = 'block'; document.getElementById('formMsg').style.display = 'none'; }
+    btn.textContent = 'Send Message'; btn.disabled = false;
   });
 
-  // Active nav highlight
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
-    navLinks.forEach(a => {
-      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold-light)' : '';
-    });
+    navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold-light)' : ''; });
   });
 </script>
 </body>
