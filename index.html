@@ -22,19 +22,13 @@
   body { font-family: var(--serif); background: var(--cream); color: var(--text); font-size: 18px; line-height: 1.75; }
 
   /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: var(--navy); border-bottom: 1px solid var(--navy-light);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 2rem; height: 56px;
-  }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--navy); border-bottom: 1px solid var(--navy-light); display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 56px; }
   .nav-brand { font-family: var(--display); font-size: 17px; font-weight: 400; color: var(--cream); letter-spacing: 0.04em; text-decoration: none; }
   .nav-brand span { color: var(--gold-light); }
   .nav-links { display: flex; gap: 1.5rem; list-style: none; }
   .nav-links a { font-family: var(--mono); font-size: 11px; color: #9bb0c4; text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
 
-  /* Mobile nav hamburger */
   .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
   .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--cream); transition: all 0.3s; }
   .nav-mobile { display: none; flex-direction: column; position: fixed; top: 56px; left: 0; right: 0; background: var(--navy); border-bottom: 1px solid var(--navy-light); padding: 1rem 2rem; gap: 1rem; z-index: 99; }
@@ -44,11 +38,7 @@
   .nav-mobile a:hover { color: var(--gold-light); }
 
   /* HERO */
-  #hero {
-    min-height: 100vh; background: var(--navy);
-    display: grid; grid-template-columns: 1fr 1fr;
-    align-items: center; padding: 56px 6rem 0; gap: 4rem;
-  }
+  #hero { min-height: 100vh; background: var(--navy); display: grid; grid-template-columns: 1fr 1fr; align-items: center; padding: 56px 6rem 0; gap: 4rem; }
   .hero-text { animation: fadeUp 0.9s ease both; }
   .hero-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
   .hero-eyebrow::after { content: ''; display: inline-block; height: 1px; width: 48px; background: var(--gold); opacity: 0.5; }
@@ -78,7 +68,7 @@
   .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
   .tag { font-family: var(--mono); font-size: 10px; background: var(--cream-dark); border: 1px solid var(--border); color: var(--text-muted); padding: 3px 10px; letter-spacing: 0.05em; }
 
-  /* PROJECTS — ACCORDION */
+  /* PROJECTS */
   #projects { background: var(--cream-dark); }
   .projects-accordion { display: flex; flex-direction: column; }
   .acc-item { border-top: 1px solid var(--border); }
@@ -97,7 +87,6 @@
   .acc-body p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 0.75rem; }
   .acc-funding { font-family: var(--mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); line-height: 1.6; }
   .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); display: inline-block; }
-  .status-dot.inactive { background: var(--text-light); }
 
   /* BLOG */
   #blog { background: var(--cream); }
@@ -133,9 +122,6 @@
   .fade-in.visible { opacity: 1; transform: translateY(0); }
   .divider { width: 48px; height: 1px; background: var(--gold); opacity: 0.4; margin: 2rem 0; }
 
-  /* =====================
-     TABLET (max 900px)
-  ===================== */
   @media (max-width: 900px) {
     #hero { padding: 56px 3rem 0; gap: 2rem; }
     .section-inner { padding: 0 2rem; }
@@ -143,64 +129,29 @@
     .bio-sidebar { border-left: none; border-top: 2px solid var(--cream-dark); padding-left: 0; padding-top: 2rem; }
   }
 
-  /* =====================
-     MOBILE (max 640px)
-  ===================== */
   @media (max-width: 640px) {
     body { font-size: 16px; }
-
-    /* Nav */
     nav { padding: 0 1.25rem; }
     .nav-links { display: none; }
     .nav-toggle { display: flex; }
-
-    /* Hero — stack vertically, show photo above text */
-    #hero {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto auto;
-      min-height: auto;
-      padding: 80px 1.5rem 3rem;
-      gap: 2rem;
-      text-align: center;
-    }
+    #hero { grid-template-columns: 1fr; grid-template-rows: auto auto; min-height: auto; padding: 80px 1.5rem 3rem; gap: 2rem; text-align: center; }
     .hero-text { order: 2; }
     .hero-portrait { order: 1; }
     .hero-eyebrow { justify-content: center; }
     .hero-desc { margin: 0 auto 2rem; }
     .hero-cta { margin: 0 auto; }
-
-    /* Photo on mobile — smaller, circular */
-    .hero-portrait img {
-      width: 160px !important;
-      height: 160px !important;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center top;
-      border: 3px solid var(--gold);
-    }
-
-    /* Sections */
+    .hero-portrait img { width: 160px !important; height: 160px !important; border-radius: 50%; object-fit: cover; object-position: center top; border: 3px solid var(--gold); }
     section { padding: 3rem 0; }
     .section-inner { padding: 0 1.25rem; }
     h2.section-title { font-size: 1.8rem; }
-
-    /* Bio */
     .bio-grid { grid-template-columns: 1fr; gap: 2rem; }
     .bio-sidebar { border-left: none; border-top: 2px solid var(--cream-dark); padding-left: 0; padding-top: 1.5rem; }
-
-    /* Accordion */
     .acc-meta { display: none; }
     .acc-title { font-size: 1rem; }
     .acc-body { padding-left: 0; }
-
-    /* Blog */
     .blog-item { grid-template-columns: 1fr; gap: 0.5rem; }
     .blog-date { padding-top: 0; }
-
-    /* Contact philanthropy block */
     .philanthropy-block { padding: 1.5rem !important; }
-
-    /* Footer */
     footer { flex-direction: column; align-items: flex-start; padding: 1.5rem 1.25rem; }
   }
 </style>
@@ -221,7 +172,6 @@
   </button>
 </nav>
 
-<!-- Mobile nav menu -->
 <div class="nav-mobile" id="navMobile">
   <a href="#bio" onclick="closeNav()">About</a>
   <a href="publications.html">Publications</a>
@@ -244,6 +194,7 @@
   </div>
 </section>
 
+<!-- BIO -->
 <section id="bio">
   <div class="section-inner">
     <div class="section-header fade-in">
@@ -251,6 +202,7 @@
       <h2 class="section-title">About</h2>
     </div>
     <div class="bio-grid">
+
       <div class="bio-text fade-in">
         <p>I am an Assistant Professor of Surgery in the Department of Surgery, Division of Surgical Oncology, at Mass General Brigham (Brigham and Women's Hospital) at Harvard Medical School, where I lead a research program focused on improving patient outcomes through health system innovation and advanced quantitative methods, at the intersection of public health, data science, and care delivery.</p>
         <p>My team investigates how fragmentation of cancer care impacts outcomes for patients with complex pancreatic and hepatobiliary cancers. We also develop and evaluate novel approaches that leverage large administrative datasets to emulate randomized clinical trials.</p>
@@ -260,6 +212,7 @@
         <div class="divider"></div>
         <p>I am committed to open science, rigorous methodology, and the mentorship of the next generation of health services researchers. I currently serve on the editorial advisory boards of <em>The American Journal of Surgery</em> and <em>Annals of Surgical Oncology (Hepatobiliary Tumors Section)</em>.</p>
       </div>
+
       <div class="bio-sidebar fade-in">
         <div class="sidebar-block">
           <div class="sidebar-label">Position</div>
@@ -281,8 +234,16 @@
           </div>
         </div>
         <div class="sidebar-block">
-          <div
+          <div class="sidebar-label">CV</div>
+          <div class="sidebar-val"><a href="Molina CV 05-2026.pdf" style="color:var(--gold);text-decoration:none;" target="_blank">Download PDF &rarr;</a></div>
+        </div>
+      </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
 <section id="projects">
   <div class="section-inner">
     <div class="section-header fade-in">
@@ -350,6 +311,7 @@
   </div>
 </section>
 
+<!-- BLOG -->
 <section id="blog">
   <div class="section-inner">
     <div class="section-header fade-in">
@@ -391,6 +353,7 @@
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
     <div class="section-header fade-in">
@@ -445,24 +408,16 @@
 </footer>
 
 <script>
-  // Scroll fade-in
   const obs = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 
-  // Accordion
   function toggleAcc(btn) { btn.closest('.acc-item').classList.toggle('open'); }
 
-  // Mobile nav
-  function toggleNav() {
-    document.getElementById('navMobile').classList.toggle('open');
-  }
-  function closeNav() {
-    document.getElementById('navMobile').classList.remove('open');
-  }
+  function toggleNav() { document.getElementById('navMobile').classList.toggle('open'); }
+  function closeNav() { document.getElementById('navMobile').classList.remove('open'); }
 
-  // Contact form
   document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const btn = document.getElementById('submitBtn');
@@ -475,7 +430,6 @@
     btn.textContent = 'Send Message'; btn.disabled = false;
   });
 
-  // Active nav highlight
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => {
