@@ -99,6 +99,87 @@
   .blog-excerpt { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 0.5rem; }
   .blog-tag { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); }
 
+  /* PATIENT RESOURCES */
+  #resources { background: var(--navy); }
+  #resources h2.section-title { color: var(--cream); }
+  #resources .section-num { color: var(--gold); }
+  #resources .section-header { border-bottom-color: var(--navy-light); }
+  .resource-card {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 2rem;
+    background: var(--navy-mid);
+    border: 1px solid var(--navy-light);
+    padding: 2.5rem;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .resource-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+  .resource-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+  .resource-card h3 {
+    font-family: var(--display);
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--cream);
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+  .resource-card p {
+    font-size: 0.97rem;
+    color: #8fadc4;
+    line-height: 1.8;
+    max-width: 580px;
+  }
+  .resource-arrow {
+    font-family: var(--mono);
+    font-size: 28px;
+    color: var(--gold);
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+  .resource-card:hover .resource-arrow { transform: translateX(4px); }
+  .resource-url {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--gold-light);
+    letter-spacing: 0.08em;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .resource-url::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--gold-light);
+    opacity: 0.5;
+  }
+  .resource-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 1.25rem;
+  }
+  .resource-feature {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #7a9ab5;
+    border: 1px solid var(--navy-light);
+    padding: 4px 12px;
+  }
+
   /* CONTACT */
   #contact { background: var(--cream-dark); }
   .contact-form { display: flex; flex-direction: column; gap: 1rem; }
@@ -127,6 +208,8 @@
     .section-inner { padding: 0 2rem; }
     .bio-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .bio-sidebar { border-left: none; border-top: 2px solid var(--cream-dark); padding-left: 0; padding-top: 2rem; }
+    .resource-card { grid-template-columns: 1fr; }
+    .resource-arrow { display: none; }
   }
 
   @media (max-width: 640px) {
@@ -152,6 +235,7 @@
     .blog-item { grid-template-columns: 1fr; gap: 0.5rem; }
     .blog-date { padding-top: 0; }
     .philanthropy-block { padding: 1.5rem !important; }
+    .resource-card { padding: 1.5rem; }
     footer { flex-direction: column; align-items: flex-start; padding: 1.5rem 1.25rem; }
   }
 </style>
@@ -165,6 +249,7 @@
     <li><a href="publications.html">Publications</a></li>
     <li><a href="#projects">Research</a></li>
     <li><a href="#blog">Writing</a></li>
+    <li><a href="#resources">Patient Resources</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
@@ -177,6 +262,7 @@
   <a href="publications.html">Publications</a>
   <a href="#projects" onclick="closeNav()">Research</a>
   <a href="#blog" onclick="closeNav()">Writing</a>
+  <a href="#resources" onclick="closeNav()">Patient Resources</a>
   <a href="#contact" onclick="closeNav()">Contact</a>
 </div>
 
@@ -325,21 +411,21 @@
         <div>
           <h3>What every patient should know after a diagnosis of pancreatic cancer</h3>
           <p style="font-size:0.88rem;color:#7a9ab5;margin-bottom:0.35rem;font-family:sans-serif;">
-            George Molina, MD, MPH</strong>
+            George Molina, MD, MPH
           </p>
-          <p class="blog-excerpt">The most important decision in pancreatic cancer care is often the first one—choosing the right team to guide you from the very beginning.</p>
+          <p class="blog-excerpt">The most important decision in pancreatic cancer care is often the first one — choosing the right team to guide you from the very beginning.</p>
           <div class="blog-tag">Opinion &nbsp;·&nbsp; <span style="color:#8a8a8a;">Unpublished manuscript</span></div>
         </div>
       </a>
 
-        <a href="Chapter 1.pdf" class="blog-item">
+      <a href="Chapter 1.pdf" class="blog-item">
         <div class="blog-date">July 2026</div>
         <div>
           <h3>What every patient with pancreatic cancer should know before treatment begins</h3>
           <p style="font-size:0.88rem;color:#7a9ab5;margin-bottom:0.35rem;font-family:sans-serif;">
-            George Molina, MD, MPH</strong>
+            George Molina, MD, MPH
           </p>
-          <p class="blog-excerpt">Every patient deserves a careful evaluation that answers one fundamental question: What is the best treatment for this specific patient, with this specific tumor, at this specific point in time?.</p>
+          <p class="blog-excerpt">Every patient deserves a careful evaluation that answers one fundamental question: What is the best treatment for this specific patient, with this specific tumor, at this specific point in time?</p>
           <div class="blog-tag">Opinion &nbsp;·&nbsp; <span style="color:#8a8a8a;">Unpublished manuscript</span></div>
         </div>
       </a>
@@ -349,13 +435,13 @@
         <div>
           <h3>Why a pancreas-protocol CT scan is the most important test after diagnosis</h3>
           <p style="font-size:0.88rem;color:#7a9ab5;margin-bottom:0.35rem;font-family:sans-serif;">
-            George Molina, MD, MPH</strong>
+            George Molina, MD, MPH
           </p>
           <p class="blog-excerpt">Before deciding how to treat pancreatic cancer, physicians must first understand exactly where the cancer is, how far it has spread, and whether it involves the blood vessels surrounding the pancreas.</p>
           <div class="blog-tag">Opinion &nbsp;·&nbsp; <span style="color:#8a8a8a;">Unpublished manuscript</span></div>
         </div>
       </a>
-      
+
       <a href="AI-Paper-02-2026.pdf" class="blog-item">
         <div class="blog-date">February 2026</div>
         <div>
@@ -389,11 +475,39 @@
   </div>
 </section>
 
+<!-- PATIENT RESOURCES -->
+<section id="resources">
+  <div class="section-inner">
+    <div class="section-header fade-in">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Patient Resources</h2>
+    </div>
+    <div class="fade-in">
+      <p style="font-size:1rem;color:#8fadc4;line-height:1.8;max-width:620px;margin-bottom:2.5rem;">A pancreatic cancer diagnosis brings urgent questions and difficult decisions. The guide below was written to help patients and families understand what excellent pancreatic cancer care looks like — and how to become informed partners in that care.</p>
+      <a href="https://www.pancreaticcancerguide.org" target="_blank" rel="noopener" class="resource-card">
+        <div>
+          <div class="resource-tag">Patient Education</div>
+          <h3>A Guide for Patients Newly Diagnosed with Pancreatic Cancer</h3>
+          <p>Written by a surgical oncologist who specializes in pancreatic cancer, this guide explains what a thorough evaluation should include — from staging imaging and biopsy to multidisciplinary review and treatment sequencing.</p>
+          <div class="resource-features">
+            <span class="resource-feature">Understanding your stage</span>
+            <span class="resource-feature">The care pathway</span>
+            <span class="resource-feature">Questions to ask your team</span>
+            <span class="resource-feature">Why imaging quality matters</span>
+          </div>
+          <div class="resource-url">pancreaticcancerguide.org</div>
+        </div>
+        <div class="resource-arrow">&rarr;</div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
     <div class="section-header fade-in">
-      <span class="section-num">04</span>
+      <span class="section-num">05</span>
       <h2 class="section-title">Contact</h2>
     </div>
     <div class="fade-in philanthropy-block" style="background:var(--navy);border:1px solid var(--navy-light);padding:2.5rem;margin-bottom:3rem;">
